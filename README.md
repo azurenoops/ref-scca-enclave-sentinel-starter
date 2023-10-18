@@ -1,21 +1,32 @@
 # Azure NoOps Mission Enclave Sentinel starter #
 
-Azure NoOps Mission Enclave Sentinel starter is a highly opinionated Infrastructure-as-Code (IaC) Sentinel implementation which Cyber Security oversight can be use to create a cloud security management system to deploy to Azure environments for their workloads and teams.
+The Azure NoOps Mission Enclave Sentinel starter is a highly opinionated Infrastructure-as-Code (IaC) Sentinel implementation that Cyber Security oversight teams may use to establish a cloud security management solution for their workloads and teams to deploy to Azure environments.
 
-Azure NoOps Mission Enclave Sentinel starter addresses a narrowly scoped, specific need for a Secure Cloud Computing Architecture (SCCA) compliant hub and spoke infrastructure.
+This starter is intended to assist customers and partners in quickly establishing a fully functional Microsoft Sentinel environment, thereby speeding up deployment and initial configuration tasks, saving time, and simplifying Microsoft Sentinel setup.
 
-Goals of Azure NoOps Mission Enclave Sentinel starter:
+Azure NoOps Mission Enclave Sentinel starter automates the following tasks:
 
-- Designed for US Government mission customers that have a small number of teams to operate cloud environments for their workloads
-- Deployable in Azure commercial, Azure Government, Azure Government Secret, and Azure Government Top Secret clouds
-- Written as [Terraform](./infrastructure/terraform/) templates
-- Use E2E [Github Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) as part of  pipelines to automate the deployment and undeployment of the entire infrastructure on multiple environments on the Azure platform.
+- Enables UEBA with the relevant identity providers (AAD and/or AD)
+- Enables health diagnostics for Analytics Rules, Data Connectors and Automation Rules
+- Installs Content Hub solutions from a predefined list in three categories: 1st party, Essentials and Training
+- Enables Data Connectors from this list:
+  - Azure Active Directory (with the ability to select which data types will be ingested)
+  - Azure Active Directory Identity Protection
+  - zure Activity (from current subscription)
+  - Dynamics 365
+  - Microsoft 365 Defender
+  - Microsoft Defender for Cloud
+  - Microsoft Insider Risk Management
+  - Microsoft Power BI
+  - Microsoft Project
+  - Office 365
+  - Threat Intelligence Platforms
 
 ## Deployment ##
 
 ### Prerequisites ###
 
-You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Sentinel into.
+You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Sentinel starter.
 
 The below scenarios to get started on the Mission Enclave Sentinel implementation.
 
