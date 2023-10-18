@@ -34,37 +34,37 @@ variable "enable_solution_microsoft_365" {
   default     = false
 }
 
-variable "enable_solution_teams" {
+variable "enable_solution_microsoft_teams" {
   description = "Enable Teams Content Hub Solution"
   type        = bool
   default     = false
 }
 
-variable "enable_solution_ms_defender_endpoint" {
+variable "enable_solution_microsoft_defender_for_endpoint" {
   description = "Enable Microsoft Defender for Endpoint Content Hub Solution"
   type        = bool
   default     = false
 }
 
-variable "enable_solution_ms_defender_cloud" {
+variable "enable_solution_microsoft_defender_for_cloud" {
   description = "Enable Microsoft Defender for Cloud Content Hub Solution"
   type        = bool
   default     = false
 }
 
-variable "enable_solution_iot" {
+variable "enable_solution_microsoft_defender_for_iot" {
   description = "Enable IoT Content Hub Solution"
   type        = bool
   default     = false
 }
 
-variable "enable_solution_dynamics_365" {
+variable "enable_solution_microsoft_dynamics_365" {
   description = "Enable Dynamics 365 Content Hub Solution"
   type        = bool
   default     = false
 }
 
-variable "enable_solution_office_irma" {
+variable "enable_solution_office_insider_risk_management" {
   description = "Enable Office IRMA Content Hub Solution"
   type        = bool
   default     = false
@@ -76,7 +76,7 @@ variable "enable_solution_office_365_project" {
   default     = false
 }
 
-variable "enable_solution_office_power_bi" {
+variable "enable_solution_office_365_powerbi" {
   description = "Enable Office Power BI Content Hub Solution"
   type        = bool
   default     = false

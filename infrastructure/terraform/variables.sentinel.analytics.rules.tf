@@ -10,49 +10,51 @@
 # Global Sentinel Configuration
 #################################
 
-variable "enable_sentinel_rule_alerts" {
-  description = "Enable Sentinel Rule Alerts"
+variable "enable_microsoft_alerts" {
+  description = "Enable Microsoft Alert Rules"
   type        = bool
   default     = false
 }
 
-variable "sentinel_rule_alerts" {
-  description = "A map of alerts to be created."
-  type = map(object({
-    query_frequency = string
-    query_period    = string
-    severity        = string
-    query           = string
+variable "microsoft_alerts" {
+  description = "List of Microsoft Alert Rules"
+  type        = map(object({
+    description              = string
+    display_name             = string
+    product_filter           = string
+    severity_filter          = list(string)
+    alert_rule_template_guid = string
+    enabled                  = bool
+  }))
+  default = {}
+}
 
-    entity_mappings = list(object({
-      entity_type = string
-      field_mappings = list(object({
-        column_name = string
-        identifier = string
-      }))
-    }))
+variable "enable_fusion_alerts" {
+  description = "Enable Fusion Alert Rules"
+  type        = bool
+  default     = false
+}
 
-    tactics    = optional(list(string))
-    techniques = optional(list(string))
+variable "fusion_alerts" {
+  description = "List of Fusion Alert Rules"
+  type        = map(object({
+    alert_rule_template_guid = string
+    enabled                  = bool
+  }))
+  default = {}
+}
 
-    display_name = string
-    description  = string
+variable "enable_machine_learning_alerts" {
+  description = "Enable Machine Learning Alert Rules"
+  type        = bool
+  default     = false
+}
 
-    #Incident Configuration Block
-    create_incident = bool
-    # Grouping Block in incident_configuration block
-    incident_configuration = object({
-      enabled                 = bool
-      lookback_duration       = string
-      reopen_closed_incidents = bool
-      entity_matching_method  = string
-      group_by_entities       = list(string)
-      group_by_alert_details  = list(string)
-    })
-
-    suppression_duration = optional(string)
-    suppression_enabled  = optional(bool)
-    event_grouping       = optional(string)
+variable "machine_learning_alerts" {
+  description = "List of Machine Learning Alert Rules"
+  type        = map(object({
+    alert_rule_template_guid = string
+    enabled                  = bool
   }))
   default = {}
 }

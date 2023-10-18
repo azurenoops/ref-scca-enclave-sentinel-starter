@@ -13,17 +13,19 @@ AUTHOR/S: jrspinella
 
 # Free Tier
 
-module "mod_sentinel_dataASC" {
-  source                     = "azurenoops/overlays-sentinel/azurerm//modules/sentinel_connectors/asc"
+module "mod_sentinel_data_azure_security_center" {
+  source                     = "azurenoops/overlays-sentinel/azurerm//modules/data_connectors/azure_security_center"
   version                    = "~> 1.0"
+  count                      = var.enable_azure_security_center ? 1 : 0
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
 }
 
-module "mod_sentinel_dataATP" {
-  source                     = "azurenoops/overlays-sentinel/azurerm//modules/sentinel_connectors/atp"
+module "mod_sentinel_data_threat_intelligence" {
+  source                     = "azurenoops/overlays-sentinel/azurerm//modules/data_connectors/threat_intelligence"
   version                    = "~> 1.0"
+  count                      = var.enable_threat_intelligence ? 1 : 0
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
@@ -31,36 +33,46 @@ module "mod_sentinel_dataATP" {
 
 # Paid Tier
 
-module "mod_sentinel_dataAAD" {
-  source                     = "azurenoops/overlays-sentinel/azurerm//modules/sentinel_connectors/aad"
+module "mod_sentinel_data_azure_active_directory" {
+  source                     = "azurenoops/overlays-sentinel/azurerm//modules/data_connectors/azure_active_directory"
   version                    = "~> 1.0"
+  count                      = var.enable_azure_active_directory ? 1 : 0
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
 }
 
-module "mod_sentinel_dataCAS" {
-  source                     = "azurenoops/overlays-sentinel/azurerm//modules/sentinel_connectors/cas"
+module "mod_sentinel_data_azure_advanced_threat_protection" {
+  source                     = "azurenoops/overlays-sentinel/azurerm//modules/data_connectors/azure_advanced_threat_protection"
   version                    = "~> 1.0"
-  count                      = var.enable_cas ? 1 : 0
+  count                      = var.enable_azure_advanced_threat_protection ? 1 : 0
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
 }
 
-module "mod_sentinel_datad365" {
-  source                     = "azurenoops/overlays-sentinel/azurerm//modules/sentinel_connectors/d365"
+module "mod_sentinel_data_microsoft_cloud_app_security" {
+  source                     = "azurenoops/overlays-sentinel/azurerm//modules/data_connectors/microsoft_cloud_app_security"
   version                    = "~> 1.0"
-  count                      = var.enable_d365 ? 1 : 0
+  count                      = var.enable_microsoft_cloud_app_security ? 1 : 0
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
 }
 
-module "mod_sentinel_dataATP" {
-  source                     = "azurenoops/overlays-sentinel/azurerm//modules/sentinel_connectors/datp"
+module "mod_sentinel_data_dynamics_365" {
+  source                     = "azurenoops/overlays-sentinel/azurerm//modules/data_connectors/dynamics_365"
   version                    = "~> 1.0"
-  count                      = var.enable_datp ? 1 : 0
+  count                      = var.enable_dynamics_365 ? 1 : 0
+
+  # Log Analytics Workspace
+  log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
+}
+
+module "mod_sentinel_data_microsoft_defender_advanced_threat_protection" {
+  source                     = "azurenoops/overlays-sentinel/azurerm//modules/data_connectors/microsoft_defender_advanced_threat_protection"
+  version                    = "~> 1.0"
+  count                      = var.enable_microsoft_defender_advanced_threat_protection ? 1 : 0
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id

@@ -12,25 +12,23 @@ AUTHOR/S: jrspinella
 #######################################################
 
 module "mod_sentinel_content_hub_solutions" {
-  source                     = "azurenoops/overlays-sentinel/azurerm//modules/content_hub_solutions"
-  version                    = "~> 1.0"
+  source  = "azurenoops/overlays-sentinel/azurerm//modules/content_hub_solutions"
+  version = "~> 1.0"
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
 
   # Enable Content Hub First Party Solutions
-  enable_solution_azure_ad             = var.enable_solution_azure_ad
-  enable_solution_azure_activity       = var.enable_solution_azure_activity
-  enable_solution_treat_intelligence   = var.enable_solution_treat_intelligence
-  enable_solution_microsoft_365        = var.enable_solution_microsoft_365
-  enable_solution_teams                = var.enable_solution_teams
-  enable_solution_ms_defender_endpoint = var.enable_solution_ms_defender_endpoint
-  enable_solution_ms_defender_cloud    = var.enable_solution_ms_defender_cloud
-  enable_solution_iot                  = var.enable_solution_iot
-  enable_solution_dynamics_365         = var.enable_solution_dynamics_365
-  enable_solution_office_irma          = var.enable_solution_office_irma
-  enable_solution_office_365_project   = var.enable_solution_office_365_project
-  enable_solution_office_power_bi      = var.enable_solution_office_power_bi
+  enable_solution_azure_ad                        = var.enable_solution_azure_ad
+  enable_solution_microsoft_365                   = var.enable_solution_microsoft_365
+  enable_solution_microsoft_teams                 = var.enable_solution_microsoft_teams
+  enable_solution_microsoft_defender_for_cloud    = var.enable_solution_microsoft_defender_for_cloud
+  enable_solution_microsoft_defender_for_endpoint = var.enable_solution_microsoft_defender_for_endpoint
+  enable_solution_microsoft_defender_for_iot      = var.enable_solution_microsoft_defender_for_iot
+  enable_solution_microsoft_dynamics_365          = var.enable_solution_microsoft_dynamics_365
+  enable_solution_office_insider_risk_management  = var.enable_solution_office_insider_risk_management
+  enable_solution_office_365_project              = var.enable_solution_office_365_project
+  enable_solution_office_365_powerbi              = var.enable_solution_office_365_powerbi
 
   # Enable Content Hub Solutions Essentials
   enable_solution_soar_essentials                             = var.enable_solution_soar_essentials

@@ -65,6 +65,11 @@ variable "log_analytics_workspace_name" {
   type        = string
 }
 
+variable "log_analytics_storage_account_name" {
+  description = "The name of the storage account in which Azure Sentinel is deployed."
+  type        = string
+}
+
 variable "log_analytics_workspace_rg" {
   description = "The resource group name of the Log Analytics workspace in which Azure Sentinel is deployed."
   type        = string
