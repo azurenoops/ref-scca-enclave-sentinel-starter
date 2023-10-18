@@ -1,4 +1,4 @@
-name: Check for infrastructure drift on Mission Enclave Management
+name: Check for infrastructure drift on Mission Enclave Sentinel
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
 jobs:
   check_drift:
     runs-on: ubuntu-latest
-    name: Check for drift of Mission Enclave Transport terraform configuration
+    name: Check for drift of Mission Enclave Sentinel terraform configuration
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}

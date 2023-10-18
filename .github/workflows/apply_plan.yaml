@@ -1,4 +1,4 @@
-name: Apply Mission Enclave Managment plan
+name: Apply Mission Enclave Sentinel plan
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ permissions:
 jobs:
   plan:    
     runs-on: ubuntu-latest
-    name: Apply terraform plan for an Mission Enclave Management terraform configuration
+    name: Apply terraform plan for an Mission Enclave Sentinel terraform configuration
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}

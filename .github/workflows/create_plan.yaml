@@ -1,4 +1,4 @@
-name: Create Mission Enclave Management Landing Zone terraform plan
+name: Create Mission Enclave Sentinel terraform plan
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ permissions:
 jobs:
   plan:
     runs-on: ubuntu-latest
-    name: Landing Zone terraform configuration
+    name: Sentinel terraform configuration
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
