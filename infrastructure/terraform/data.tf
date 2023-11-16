@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
 data "azurerm_log_analytics_workspace" "loganalytics" {
   provider            = azurerm.hub
   name                = var.log_analytics_workspace_name

@@ -7,9 +7,9 @@ DESCRIPTION: This resource generates sentinel settings based on the settings inp
 AUTHOR/S: jrspinella
 */
 
-##########################################
-###  Sentinel Settings Configuations   ###
-##########################################
+#################################################
+###  Sentinel Entity Behavior Configuations   ###
+#################################################
 
 /* module "mod_sentinel_ubea_settings" {
   source                     = "azurenoops/overlays-sentinel/azurerm//modules/ueba"

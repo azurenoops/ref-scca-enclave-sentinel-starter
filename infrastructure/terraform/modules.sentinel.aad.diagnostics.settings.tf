@@ -15,7 +15,7 @@ module "mod_sentinel_aad_monitor_settings" {
   count = var.enable_azure_active_directory ? 1 : 0
 
   # Log Analytics Workspace
-  log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
+  log_analytics_workspace_id       = data.azurerm_log_analytics_workspace.loganalytics.id
   log_analytics_storage_account_id = data.azurerm_storage_account.storage_account.id
 
   # Azure Active Directory Diagnostic Settings

@@ -24,6 +24,12 @@ To get started with Terraform on Azure check out their [tutorial](https://learn.
 > NOTE: Azure Cloud Shell is often our preferred place to deploy from because the AZ CLI and Terraform are already installed. However, sometimes Cloud Shell has different versions of the dependencies from what we have tested and verified, and sometimes there have been bugs in the Terraform Azure RM provider or the AZ CLI that only appear in Cloud Shell. If you are deploying from Azure Cloud Shell and see something unexpected, try the [development container](../.devcontainer) or deploy from your machine using locally installed AZ CLI and Terraform. We welcome all feedback and [contributions](../CONTRIBUTING.md), so if you see something that doesn't make sense, please [create an issue](https://github.com/AzureNoOps/ref-scca-enclave-landing-zone-starter/issues/new/choose) or open a [discussion thread](https://github.com/AzureNoOps/ref-scca-enclave-landing-zone-starter/discussions).
 <!-- markdownlint-enable MD013 -->
 
+- Log Analytics Workspace will need to be updated with the following values:
+  - `retentionInDays` - 30 days
+  - `workspaceCapping` - PerGB2018
+  - `immediatePurgeDataOn30Days` - PerGB2018
+  - `capacityReservationLevel` - 0
+
 ## Quickstart
 
 Below is an example of a Terraform deployment that uses all the defaults in the [TFVARS folder](./../infrastructure/terraform/tfvars/parameters.tfvars) to deploy the landing zone to one subscription.

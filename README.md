@@ -12,7 +12,7 @@ Azure NoOps Mission Enclave Sentinel starter automates the following tasks:
 - Enables Data Connectors from this list:
   - Azure Active Directory (with the ability to select which data types will be ingested)
   - Azure Active Directory Identity Protection
-  - zure Activity (from current subscription)
+  - Azure Activity (from current subscription)
   - Dynamics 365
   - Microsoft 365 Defender
   - Microsoft Defender for Cloud

@@ -3,19 +3,18 @@
 
 /*
 SUMMARY: Sentinel Alerts
-DESCRIPTION: This resource generates sentinel alerts based on the alert rules input into the module
+DESCRIPTION: This resource generates sentinel alerts based on the alert rules input from the TFVars file.
 AUTHOR/S: jrspinella
 */
 
 ###################################################
 ###  Sentinel MS Incident Alerts Configuations  ###
 ###################################################
-
 module "mod_sentinel_ms_security_incident_alert_rules" {
   source  = "azurenoops/overlays-sentinel/azurerm//modules/ms_security_incident_alert_rule"
   version = "~> 1.0"
 
-  for_each = var.enable_microsoft_alerts ? var.microsoft_alerts : {}
+  for_each = var.enable_microsoft_incident_alerts ? local.microsoft_incident_alerts : {}
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
@@ -32,12 +31,13 @@ module "mod_sentinel_ms_security_incident_alert_rules" {
 ##############################################
 ###  Sentinel Fusion Alerts Configuations  ###
 ##############################################
-
 module "mod_sentinel_fusion_alert_rules" {
   source  = "azurenoops/overlays-sentinel/azurerm//modules/fusion_alert_rule"
   version = "~> 1.0"
 
-  for_each = var.enable_fusion_alerts ? var.fusion_alerts : {}
+
+
+  for_each = var.enable_fusion_alerts ? local.fusion_alerts : {}
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
@@ -55,7 +55,7 @@ module "mod_sentinel_machine_learning_behavior_analytics_alert_rules" {
   source  = "azurenoops/overlays-sentinel/azurerm//modules/machine_learning_behavior_analytics_alert_rule"
   version = "~> 1.0"
 
-  for_each = var.enable_machine_learning_alerts ? var.machine_learning_alerts : {}
+  for_each = var.enable_machine_learning_alerts ? local.machine_learning_alerts : {}
 
   # Log Analytics Workspace
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.loganalytics.id
@@ -63,4 +63,14 @@ module "mod_sentinel_machine_learning_behavior_analytics_alert_rules" {
   # Sentinel Alert Rule
   alert_rule_template_guid = each.value.alert_rule_template_guid
   enable_rule_alert        = each.value.enabled
+}
+
+###################################################
+###  Sentinel Scheduled Alerts Configuations    ###
+###################################################
+module "mod_sentinel_scheduled_alert_rules" {
+  source  = "azurenoops/overlays-sentinel/azurerm//modules/scheduled_alert_rule"
+  version = "~> 1.0"
+
+  scheduled_alert_rules = var.enable_scheduled_alerts ? local.scheduled_alerts : {}
 }
