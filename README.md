@@ -22,6 +22,38 @@ Azure NoOps Mission Enclave Sentinel starter automates the following tasks:
   - Office 365
   - Threat Intelligence Platforms
 
+## Table of Contents ##
+
+- [Azure NoOps Mission Enclave Sentinel starter](#azure-noops-mission-enclave-sentinel-starter)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+  - [JFHQ-DODIN TASKORD 24-006 Support](#jfhq-dodin-taskord-24-006-support)
+  - [Deploy Manually with Terraform](#deploy-manually-with-terraform)
+  - [Deploy with GitHub Actions](#deploy-with-github-actions)
+  - [Limitations](#limitations)
+  - [Got feedback](#got-feedback)
+  - [Data Collection](#data-collection)
+  - [Contributing](#contributing)
+  - [Legal Notices](#legal-notices)
+  - [Trademarks](#trademarks)
+
+## Getting Started ##
+
+### Prerequisites ###
+
+Before you begin, ensure you have met the following requirements:
+
+- **Azure Subscription**: You need an Azure subscription to create resources in Azure. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/).
+
+- **Azure CLI or Azure PowerShell**: You need either Azure CLI or Azure PowerShell installed and configured to interact with your Azure account. You can download them from [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and [here](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps) respectively.
+
+- **Terraform**: You will need Terraform installed to deploy the infrastructure. You can download Terraform from [here](https://www.terraform.io/downloads.html).
+
+- **Knowledge of Azure Sentinel**: This project involves deploying and managing Azure Sentinel resources. Familiarity with Azure Sentinel and its concepts is recommended.
+
+Please replace the links and the software versions with the ones that are relevant to your project.
+
 ## JFHQ-DODIN TASKORD 24-006 Support
 
 Azure NoOps Mission Enclave Sentinel starter supports the JFHQ-DODIN TASKORD 24-006 by providing the ability to deploy and manage Azure Sentinel components.
@@ -35,35 +67,33 @@ These components are installed automatically as part of the [Azure NoOps Sentine
 - Azure Content Hub Solutions (MS XDR)
 - Azure Data Connectors (MS Entra Id, MS XDR)
 
-## Deployment ##
+## Deploy Manually with Terraform ##
 
-### Prerequisites ###
+You can deploy Azure NoOps Mission Enclave Landing Zone using the Terraform CLI. The Terraform CLI will deploy the infrastructure to the Azure subscription you have configured in the Terraform CLI.
 
-You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Sentinel starter.
+You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Landing Zone into.
 
-The below scenarios to get started on the Mission Enclave Sentinel implementation.
-
-### Deploy with Terraform CLI ###
-
-This implementation has a detailed README.md that will walk you through the deployment steps.
+The below scenario is how to get started on the Mission Enclave Landing Zone implementation manually. This implementation has a detailed README.md that will walk you through the deployment steps.
 
 Manual Deployment Details:
 | Deployment Methodology | Manual Deployment |
 |--------------|--------------|
-|Terraform|[Published](./docs/manual-deployment-guide-terraform.md)
+|Terraform|[Published](./docs/10-manual-deployment-guide-terraform.md)
 
->NOTE: Using manual deployment to deploy the infrastructure using the Terraform CLI. This is a good option if you want to learn how to deploy the infrastructure using Terraform CLI. If you want to deploy the infrastructure using GitHub Actions, please use the E2E GitHub Deployment.
+>NOTE: Using manual deployment to deploy the infrastructure using the Terraform CLI. This is a good option if you want to learn how to deploy the infrastructure using Terraform CLI.
 
-### Deploy with GitHub ###
+## Deploy with GitHub Actions ##
 
-You can deploy Azure NoOps Mission Enclave Sentinel starter using the GitHub Actions. The GitHub Actions will deploy the infrastructure to the Azure subscription you have configured in the GitHub Secrets.
+You can deploy Azure NoOps Mission Enclave Landing Zone using the GitHub Actions. The GitHub Actions will deploy the infrastructure to the Azure subscription you have configured in the GitHub Secrets.
 
-This implementation has a detailed README.md that will walk you through the deployment steps.
+You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Landing Zone into.
+
+The below scenario is how to get started on the Mission Enclave Landing Zone implementation with GitHub Actions. This implementation has a detailed README.md that will walk you through the deployment steps.
 
 E2E GitHub Deployment Details:
 | Deployment Methodology | GitHub Actions | Azure DevOps |
 |--------------|--------------|--------------|
-|Terraform|[Published](./docs/11-e2e-githubaction.md)| Coming soon |
+|Terraform|[In Progress](./docs/09-e2e-deployment-guide-githubaction.md)| Coming soon |
 
 ## Limitations ##
 
