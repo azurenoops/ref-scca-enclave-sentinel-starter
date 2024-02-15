@@ -69,11 +69,11 @@ These components are installed automatically as part of the [Azure NoOps Sentine
 
 ## Deploy Manually with Terraform ##
 
-You can deploy Azure NoOps Mission Enclave Landing Zone using the Terraform CLI. The Terraform CLI will deploy the infrastructure to the Azure subscription you have configured in the Terraform CLI.
+You can deploy Azure NoOps Mission Enclave Sentinel using the Terraform CLI. The Terraform CLI will deploy the infrastructure to the Azure subscription you have configured in the Terraform CLI.
 
-You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Landing Zone into.
+You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Sentinel into.
 
-The below scenario is how to get started on the Mission Enclave Landing Zone implementation manually. This implementation has a detailed README.md that will walk you through the deployment steps.
+The below scenario is how to get started on the Mission Enclave Sentinel implementation manually. This implementation has a detailed README.md that will walk you through the deployment steps.
 
 Manual Deployment Details:
 | Deployment Methodology | Manual Deployment |
@@ -84,11 +84,11 @@ Manual Deployment Details:
 
 ## Deploy with GitHub Actions ##
 
-You can deploy Azure NoOps Mission Enclave Landing Zone using the GitHub Actions. The GitHub Actions will deploy the infrastructure to the Azure subscription you have configured in the GitHub Secrets.
+You can deploy Azure NoOps Mission Enclave Sentinel using the GitHub Actions. The GitHub Actions will deploy the infrastructure to the Azure subscription you have configured in the GitHub Secrets.
 
-You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Landing Zone into.
+You must have [Owner RBAC permissions](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) to the subscription(s) you deploy Azure NoOps Mission Enclave Sentinel into.
 
-The below scenario is how to get started on the Mission Enclave Landing Zone implementation with GitHub Actions. This implementation has a detailed README.md that will walk you through the deployment steps.
+The below scenario is how to get started on the Mission Enclave Sentinel implementation with GitHub Actions. This implementation has a detailed README.md that will walk you through the deployment steps.
 
 E2E GitHub Deployment Details:
 | Deployment Methodology | GitHub Actions | Azure DevOps |
