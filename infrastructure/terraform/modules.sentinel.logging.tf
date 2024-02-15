@@ -31,9 +31,15 @@ module "mod_sentinel_logging" {
   #############################
 
   # (Optional) Logging Solutions
-  # All solutions are enabled (true) by default in the Landing Zone Starter. To disable a solution, set the value to false.
-  enable_sentinel              = var.enable_sentinel
-  
+  # All solutions are enabled (true) by default in the Sentinel Starter. To disable a solution, set the value to false.
+  enable_sentinel = var.enable_sentinel
+
+  # These are not required if you are using an another Log Analytics Workspace for Sentinel
+  enable_container_insights  = false
+  enable_key_vault_analytics = false
+  enable_vm_insights         = false
+
+
   # (Required) To enable Azure Monitoring
   # Sku Name - Possible values are PerGB2018 and Free
   # Log Retention in days - Possible values range between 30 and 730
