@@ -22,6 +22,19 @@ Azure NoOps Mission Enclave Sentinel starter automates the following tasks:
   - Office 365
   - Threat Intelligence Platforms
 
+## JFHQ-DODIN TASKORD 24-006 Support
+
+Azure NoOps Mission Enclave Sentinel starter supports the JFHQ-DODIN TASKORD 24-006 by providing the ability to deploy and manage Azure Sentinel components.
+
+### Required Installed Components
+
+These components are installed automatically as part of the [Azure NoOps Sentinel Overlay module](https://registry.terraform.io/modules/azurenoops/overlays-sentinel/azurerm/latest):
+
+- Azure Monitor MS Entra Id Diagnostic Settings
+- Azure UBEA Solutions
+- Azure Content Hub Solutions (MS XDR)
+- Azure Data Connectors (MS Entra Id, MS XDR)
+
 ## Deployment ##
 
 ### Prerequisites ###
