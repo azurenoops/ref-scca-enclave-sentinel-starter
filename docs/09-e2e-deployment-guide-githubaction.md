@@ -67,6 +67,50 @@ Use this service principal to set up the following secrets in your GitHub reposi
 - `AZURE_CREDENTIALS`: The JSON output of the `az ad sp create-for-rbac` command.
 - `AZURE_SUBSCRIPTION_ID`: The subscription ID of your Azure subscription.
 
+## Using SPN for Azure Active Directory Diagnostics Settings
+
+ This Sentinel Starter activates the Azure Active Directory Diagnostics Settings for the Azure Active Directory. The module will create a diagnostic setting for the Azure Active Directory and will send the logs to the specified Log Analytics workspace.
+
+ In order to enable the logs, you will need to create a role assignment for the specified above Service Principal to access the Azure Active Directory Diagnostics Settings using the specified Service Principal.
+
+### Prerequisite for performing the role assignment for Azure Active Directory Diagnostics Settings
+
+- Global Admin assigned for your user (or the user you want to perform the role assignment with)
+- For the tenant the setting "Access management for Azure resources" is set to "Yes" for your user
+
+> You can find this setting with the AAD settings -> Properties
+> Changing this setting requires Global Admin
+
+### Performing the role assignment
+
+The role assignment can't be performed from Azure portal. Use az or powershell instead.
+
+1. Find out the Object-ID of the Enterprise Application of your Service principal
+(Just to point it out: Object-ID not Application-ID. Enterprise Application not App Registration)
+
+2. Select appropriate built-in role
+Custom roles are not supported.
+Roles I validated:
+
+- Reader is able to read but not change the aadiam
+- Contributor is able to read and write the aadiam
+
+Perform the role assignment:
+
+Using Bash and Azure CLI:
+
+```bash
+az role assignment create --assignee-principal-type  ServicePrincipal --assignee-object-id <OBJECT_ID_ENTERPRISE_APP> --scope "/providers/Microsoft.aadiam" --role <ROLE_ID>
+```
+
+Using PowerShell and Az module:
+
+```powershell
+New-AzRoleAssignment -ObjectId "ObjectIdOfTheServicePrincipal" -Scope "/providers/Microsoft.aadiam" -RoleDefinitionName 'Contributor' -ObjectType 'ServicePrincipal'
+```
+
+After that the specified above Service Principal will have permissions to access Microsoft.aadiam permission.
+
 ## Setup secrets
 
 We are using different secrets in our workflow: Secrets in GitHub are encrypted and allow you to store sensitive information such as passwords or API keys, and use them in your workflows using the ${{ secrets.MY_SECRET }} syntax.
