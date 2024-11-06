@@ -77,3 +77,12 @@ variable "lock_level" {
   default     = "CanNotDelete"
 }
 
+variable "existing_sec_laws_name" {
+  description = "The name of the existing Log Analytics Workspace for security logs."
+  type        = string  
+}
+
+variable "existing_sec_laws_rgname" {
+  description = "The name of the existing Resource Group for the Log Analytics Workspace for security logs."
+  type        = string  
+}
