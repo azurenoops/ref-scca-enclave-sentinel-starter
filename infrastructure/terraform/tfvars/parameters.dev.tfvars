@@ -99,7 +99,7 @@ enable_solution_training_lab = false
 # Sentinel Automation Configurations   ###
 ##########################################
 
-enable_automation_rules = false
+enable_automation_rules = true
 
 # Sentinel Automation Rules
 # Update Automation Rules in local file. See locaL.automation.rules.tf for examples.
