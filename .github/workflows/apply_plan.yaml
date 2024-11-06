@@ -1,9 +1,10 @@
 name: Apply Mission Enclave Sentinel plan
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+ # push: - change this when using in production
+  #  branches:
+  #    - main
 
 permissions:
   contents: read
