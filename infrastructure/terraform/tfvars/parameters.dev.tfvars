@@ -7,18 +7,15 @@
 
 # The prefixes to use for all resources in this deployment
 org_name           = "ampe"   # This Prefix will be used on most deployed resources.  10 Characters max.
-deploy_environment = "prod"   # dev | test | prod
+deploy_environment = "dev"   # dev | test | prod
 environment        = "public" # public | usgovernment
 
 # The default region to deploy to
 default_location = "eastus"
 
 # Log Analytics Workspace Settings
-log_analytics_workspace_sku                    = "PerGB2018"
-log_analytics_logs_retention_in_days           = 30
-log_analytics_storage_account_kind             = "StorageV2"
-log_analytics_storage_account_tier             = "Standard"
-log_analytics_storage_account_replication_type = "GRS"
+existing_sec_laws_name   = "anoa-eus-sec-logging-dev-log"
+existing_sec_laws_rgname = "anoa-eus-sec-logging-dev-rg"
 
 # Enable/Disable Sentinel
 enable_sentinel = true
@@ -44,7 +41,7 @@ enable_sentinel = true
 # - MicrosoftCloudAppSecurity
 # - MicrosoftThreatProtection
 # - ThreatIntelligence
-data_connectors =  ["AzureAdvancedThreatProtection", "AzureSecurityCenter", "OfficeATP", "MicrosoftDefenderAdvancedThreatProtection", "MicrosoftThreatIntelligence", "MicrosoftCloudAppSecurity", "MicrosoftThreatProtection"]
+data_connectors = ["AzureAdvancedThreatProtection", "AzureSecurityCenter", "OfficeATP", "MicrosoftDefenderAdvancedThreatProtection", "MicrosoftThreatIntelligence", "MicrosoftCloudAppSecurity", "MicrosoftThreatProtection"]
 
 #####################################
 # Sentinel UBEA Configurations    ###
@@ -105,23 +102,28 @@ enable_solution_training_lab = false
 enable_automation_rules = false
 
 # Sentinel Automation Rules
-#automation_rules = 
+# Update Automation Rules in local file. See locaL.automation.rules.tf for examples.
 
 ##########################################
 # Sentinel Alert Rules Configurations  ###
 ##########################################
 
 # Sentinel MS Incident Rule Alerts
+# Update MS Incident Rule Alerts in local file. See local.microsoft.incident.alerts.tf for examples.
 enable_microsoft_incident_alerts = true
 
 # Sentinel Fusion Rule Alerts
+# Update Fusion Rule Alerts in local file. See local.fusion.alerts.tf for examples.
 enable_fusion_alerts = true
 
 # Sentinel Machine Learning Rule Alerts
+# Update Machine Learning Rule Alerts in local file. See local.machine.learning.alerts.tf for examples.
 enable_machine_learning_alerts = true
 
-# Sentinel Machine Learning Rule Alerts
+# Sentinel Scheduled Alerts
+# Update Machine Learning Rule Alerts in local file. See local.scheduled.alerts.tf for examples.
 enable_scheduled_alerts = false
+
 
 
 
