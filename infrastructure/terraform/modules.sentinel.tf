@@ -66,7 +66,7 @@ module "mod_sentinel" {
   enable_solution_training_lab = var.enable_solution_training_lab
 
   # Automation Rules
-  automation_rules = var.enable_automation_rules ? local.automation_rules : jsonencode(local.empty_map)
+  automation_rules = var.enable_automation_rules ? local.automation_rules : local.empty_map
 
   # Azure Alerts
   fusion_alert_rules               = var.enable_fusion_alerts ? local.fusion_alerts : local.empty_map
