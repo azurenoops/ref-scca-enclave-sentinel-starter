@@ -3,25 +3,28 @@
 
 /*
 SUMMARY: Azure Sentinel Settings
-DESCRIPTION: This resource generates azure sentinel diagnostic settings for Azure Active Directory.
+DESCRIPTION: This resource generates Azure Sentinel settings.
 AUTHOR/S: jrspinella
 */
 
 module "mod_sentinel" {
+  providers = { azurerm = azurerm.security }
   source  = "azurenoops/overlays-sentinel/azurerm"
-  version = "~> 3.0"
+  version = "3.1.0"
+
+  count = var.enable_sentinel ? 1 : 0
 
   # Global  
   deploy_environment = var.deploy_environment
 
   # Log Analytics Workspace
-  log_analytics_workspace_id = module.mod_sentinel_logging.laws_resource_id
+  log_analytics_workspace_id = data.azurerm_log_analytics_workspace.sec_log_analytics.workspace_id
 
   # Only Required for Conent Hub Solutions
   log_analytics_workspace_location = var.default_location
-  
+
   # Azure Active Directory Diagnostic Settings
-  data_connector_aad_logs    = var.data_connector_aad_logs  
+  data_connector_aad_logs = var.data_connector_aad_logs
 
   # Azure Sentinel Data Connectors
   data_connectors = var.data_connectors
@@ -62,9 +65,12 @@ module "mod_sentinel" {
   enable_solution_kql_training = var.enable_solution_kql_training
   enable_solution_training_lab = var.enable_solution_training_lab
 
+  # Automation Rules
+  automation_rules = var.enable_automation_rules ? local.automation_rules : local.empty_map
+
   # Azure Alerts
-  fusion_alert_rules               = local.fusion_alerts
-  machine_learning_alert_rules     = local.machine_learning_alerts
-  scheduled_alert_rules            = local.scheduled_alerts
-  ms_security_incident_alert_rules = local.microsoft_incident_alerts
+  fusion_alert_rules               = var.enable_fusion_alerts ? local.fusion_alerts : local.empty_map
+  machine_learning_alert_rules     = var.enable_machine_learning_alerts ? local.machine_learning_alerts : local.empty_map
+  scheduled_alert_rules            = var.enable_scheduled_alerts ? local.scheduled_alerts : local.empty_map
+  ms_security_incident_alert_rules = var.enable_microsoft_incident_alerts ? local.microsoft_incident_alerts : local.empty_map
 }
