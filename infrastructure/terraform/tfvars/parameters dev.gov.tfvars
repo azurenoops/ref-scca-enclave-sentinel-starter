@@ -6,7 +6,7 @@
 ###########################
 
 # The prefixes to use for all resources in this deployment
-org_name           = "ampe"   # This Prefix will be used on most deployed resources.  10 Characters max.
+org_name           = "anoa"   # This Prefix will be used on most deployed resources.  10 Characters max.
 deploy_environment = "dev"   # dev | test | prod
 environment        = "usgovernment" # public | usgovernment
 
