@@ -66,11 +66,11 @@ module "mod_sentinel" {
   enable_solution_training_lab = var.enable_solution_training_lab
 
   # Automation Rules
-  automation_rules = var.enable_automation_rules ? local.automation_rules : {}
+  automation_rules = var.enable_automation_rules ? local.automation_rules : jsonencode(local.empty_map)
 
   # Azure Alerts
-  fusion_alert_rules               = var.enable_fusion_alerts ? local.fusion_alerts : {}
-  machine_learning_alert_rules     = var.enable_machine_learning_alerts ? local.machine_learning_alerts : {}
-  scheduled_alert_rules            = var.enable_scheduled_alerts ? local.scheduled_alerts : {}
-  ms_security_incident_alert_rules = var.enable_microsoft_incident_alerts ? local.microsoft_incident_alerts : {}
+  fusion_alert_rules               = var.enable_fusion_alerts ? local.fusion_alerts : local.empty_map
+  machine_learning_alert_rules     = var.enable_machine_learning_alerts ? local.machine_learning_alerts : local.empty_map
+  scheduled_alert_rules            = var.enable_scheduled_alerts ? local.scheduled_alerts : local.empty_map
+  ms_security_incident_alert_rules = var.enable_microsoft_incident_alerts ? local.microsoft_incident_alerts : local.empty_map
 }
